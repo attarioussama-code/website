@@ -53,4 +53,9 @@ class User extends Authenticatable implements FilamentUser
     {
         return true;
     }
+    public function sharedFiles()
+{
+    return $this->belongsToMany(File::class, 'file_user');
+}
+
 }

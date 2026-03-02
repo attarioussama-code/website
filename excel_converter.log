@@ -1,0 +1,9 @@
+2025-07-16 12:34:59,187 - werkzeug - WARNING -  * Debugger is active!
+2025-07-16 12:34:59,192 - werkzeug - INFO -  * Debugger PIN: 446-001-186
+2025-07-16 12:35:05,849 - __main__ - INFO - Starting download request processing
+2025-07-16 12:35:13,192 - __main__ - WARNING - Could not set Visible property: Property 'Excel.Application.Visible' can not be set.
+2025-07-16 12:35:13,192 - __main__ - WARNING - Could not set DisplayAlerts: Property 'Excel.Application.DisplayAlerts' can not be set.
+2025-07-16 12:35:13,193 - __main__ - WARNING - Could not disable ScreenUpdating: Property 'Excel.Application.ScreenUpdating' can not be set.
+2025-07-16 12:35:13,194 - __main__ - ERROR - Excel processing failed: Excel.Application.Workbooks
+2025-07-16 12:35:14,195 - __main__ - ERROR - Processing failed: Excel.Application.Workbooks
+2025-07-16 12:38:29,620 - werkzeug - INFO -  * Detected change in 'c:\\Users\\univ\\Desktop\\laravel-filament-multiple-panels-with-single-login-page\\app\\Http\\Controllers\\monthControle.py', reloading

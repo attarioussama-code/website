@@ -17,6 +17,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Resources\FileResource;
 
 class UserPanelProvider extends PanelProvider
 {
@@ -29,16 +30,28 @@ class UserPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/User/Resources'), for: 'App\\Filament\\User\\Resources')
-            ->discoverPages(in: app_path('Filament/User/Pages'), for: 'App\\Filament\\User\\Pages')
+->brandName('المديرية الفرعية للمالية والمحاسبة')
+    ->resources([
+            FileResource::class, // نستخدم نفس الملف المشترك
+        ])
+
+            // صفحات إضافية خاصة باللوحة مثل لوحة التحكم
             ->pages([
                 Pages\Dashboard::class,
             ])
-            ->discoverWidgets(in: app_path('Filament/User/Widgets'), for: 'App\\Filament\\User\\Widgets')
+
+            // اكتشاف الودجات الخاصة باليوزر
+            ->discoverWidgets(
+                in: app_path('Filament/User/Widgets'),
+                for: 'App\\Filament\\User\\Widgets'
+            )
+
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
+                   \App\Filament\User\Widgets\LatestArticles::class,
             ])
+
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
@@ -50,6 +63,7 @@ class UserPanelProvider extends PanelProvider
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
             ])
+
             ->authMiddleware([
                 Authenticate::class,
             ]);

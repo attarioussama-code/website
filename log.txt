@@ -1,0 +1,1 @@
+خطأ في الملف ~$جوان 2025.xlsm: [Errno 13] Permission denied: 'C:\\Users\\Bk-pc\\Desktop\\execl\\~$جوان 2025.xlsm'

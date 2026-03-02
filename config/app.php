@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'المديرية الفرعية للمالية والمحاسبة'),
 
     /*
     |--------------------------------------------------------------------------
@@ -80,9 +80,9 @@ return [
 
     'locale' => env('APP_LOCALE', 'zh_TW'),
 
-    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
+    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'ar'),
 
-    'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
+    'faker_locale' => env('APP_FAKER_LOCALE', 'ar'),
 
     /*
     |--------------------------------------------------------------------------
@@ -122,5 +122,8 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
+    'aliases' => [
+    'Image' => Intervention\Image\Facades\Image::class,
+],
 
 ];

@@ -17,6 +17,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Resources\FileResource;
+use Illuminate\Support\Str;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -29,15 +31,28 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
-            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
+            ->brandName('المديرية الفرعية للمالية والمحاسبة')
+              ->resources([
+            FileResource::class, // نفس المورد
+        ])
             ->pages([
                 Pages\Dashboard::class,
             ])
+            ->discoverResources(
+    in: app_path('Filament/Resources'), 
+    for: 'App\\Filament\\Resources'
+)
+->discoverResources(
+    in: app_path('Filament/User/Resources'), 
+    for: 'App\\Filament\\User\\Resources'
+)
+
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
                 Widgets\AccountWidget::class,
                 Widgets\FilamentInfoWidget::class,
+                 \App\Filament\User\Widgets\LatestArticles::class,
+            
             ])
             ->middleware([
                 EncryptCookies::class,
